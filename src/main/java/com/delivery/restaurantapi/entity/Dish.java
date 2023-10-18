@@ -8,7 +8,6 @@ import lombok.Data;
 @Data
 public class Dish {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -32,6 +31,3 @@ public class Dish {
     @Column(name = "menu_id")
     private String menuId;
 }
-
-
-

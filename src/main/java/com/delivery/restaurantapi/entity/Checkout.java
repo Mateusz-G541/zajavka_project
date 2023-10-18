@@ -8,15 +8,6 @@ import lombok.Data;
 @Data
 public class Checkout {
 
-    public Checkout() {}
-
-    public Checkout(String userEmail, String checkoutDate, int count, Long dishId) {
-        this.userEmail = userEmail;
-        this.checkoutDate = checkoutDate;
-        this.count = count;
-        this.dishId = dishId;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -34,7 +25,7 @@ public class Checkout {
     @Column(name = "count")
     private int count;
 
-    @Column(name = "dish_id")
-    private Long dishId;
+    @ManyToOne
+    @JoinColumn(name = "dish_id")
+    private Dish dish;
 }
-
