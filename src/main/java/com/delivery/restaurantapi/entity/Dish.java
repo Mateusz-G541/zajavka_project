@@ -1,7 +1,12 @@
+// Dish.java
+
 package com.delivery.restaurantapi.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "dish")
@@ -28,6 +33,6 @@ public class Dish {
     @Column(name = "img")
     private String img;
 
-    @Column(name = "menu_id")
-    private String menuId;
+    @ManyToMany(mappedBy = "dishes")
+    private Set<Menu> menus = new HashSet<>();
 }
